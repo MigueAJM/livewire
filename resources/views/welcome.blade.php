@@ -27,6 +27,8 @@
             ];   
         @endphp
         <livewire:counter :count="$count" :data="$data"/>
+        <br/>
+        <livewire:paises />
         @livewireScripts
     </body>
 </html>
