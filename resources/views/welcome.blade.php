@@ -18,7 +18,15 @@
 
     @livewireStyles
     <body>
-        <livewire:counter />
+
+        @php
+            $count = 1; 
+            $data = [
+                'title' => 'Laravel Livewire',
+                'description' => 'Curso de livewire'
+            ];   
+        @endphp
+        <livewire:counter :count="$count" :data="$data"/>
         @livewireScripts
     </body>
 </html>
