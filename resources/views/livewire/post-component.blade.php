@@ -13,9 +13,13 @@
             placeholder="Ingrese la descripción del post" class="form-control"></textarea>
         </div>
 
-        <div>
-            <button wire:click="store" class="btn-primary">Crear post</button>
-        </div>
+        @if($action == 'store')
+            <button wire:click="store" class="btn-primary">Crear</button>
+        @else
+            <button wire:click="update" class="btn-primary">Actualizar</button>
+            <button wire:click="default" class="btn-secundary">Cancelar</button>
+
+        @endif
     </div>
 
     <table class="bg-white rounded-lg shadow overflow-hidden max-w-4xl mx-auto">
@@ -34,7 +38,7 @@
                     <td class="px-6 py-4">{{$post->name}}</td>
                     <td class="px-6 py-4">{{$post->body}}</td>
                     <td class="px-6 py-4">
-                        <button class="btn-primary w-full">Editar</button>
+                        <button wire:click="edit({{$post}})" class="btn-primary w-full">Editar</button>
                         <button class="btn-secundary">Eliminar</button>
                     </td>
                 </tr>
