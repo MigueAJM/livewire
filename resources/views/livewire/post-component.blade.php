@@ -3,18 +3,18 @@
     <div class="bg-white rounded-lg shadow overflow-hidden max-w-4xl mx-auto p-4 mb-6">
         <div class="mb-3">
             <label for="name" class="form-label mb-2">Nombre</label>
-            <input id="name" name="body" placeholder="Ingrese un nombre"
+            <input wire:model="name" id="name" name="body" placeholder="Ingrese un nombre"
             class="form-control">
         </div>
 
         <div class="mb-3">
             <label for="body" class="form-label mb-2">Descripción</label>
-            <textarea  name="body" id="body" rows="4"
+            <textarea wire:model="body" name="body" id="body" rows="4"
             placeholder="Ingrese la descripción del post" class="form-control"></textarea>
         </div>
 
         <div>
-            <button class="btn-primary">Crear post</button>
+            <button wire:click="store" class="btn-primary">Crear post</button>
         </div>
     </div>
 
