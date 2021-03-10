@@ -46,6 +46,11 @@ class PostComponent extends Component
         $this->reset(['name', 'body', 'action', 'post_id']);
     }
 
+    public function destroy(Post $post)
+    {
+        $post->delete();
+    }
+
     public function default()
     {
         $this->reset(['name', 'body', 'action', 'post_id']);

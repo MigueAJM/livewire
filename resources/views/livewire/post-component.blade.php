@@ -39,7 +39,7 @@
                     <td class="px-6 py-4">{{$post->body}}</td>
                     <td class="px-6 py-4">
                         <button wire:click="edit({{$post}})" class="btn-primary w-full">Editar</button>
-                        <button class="btn-secundary">Eliminar</button>
+                        <button wire:click="destroy({{$post}})" class="btn-secundary">Eliminar</button>
                     </td>
                 </tr>
             @endforeach
