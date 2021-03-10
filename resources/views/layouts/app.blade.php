@@ -12,7 +12,7 @@
     <title>Livewire</title>
     @livewireStyles
 </head>
-<body>
+<body class="bg-gray-200 pt-4">
 
     {{$slot}}
     @livewireScripts
