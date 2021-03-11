@@ -1,16 +1,27 @@
 <div class="container mx-auto">
 
     <div class="bg-white rounded-lg shadow overflow-hidden max-w-4xl mx-auto p-4 mb-6">
+
         <div class="mb-3">
             <label for="name" class="form-label mb-2">Nombre</label>
             <input wire:model="name" id="name" name="body" placeholder="Ingrese un nombre"
             class="form-control">
+
+            @error('name')
+                <p class="text-xs text-red-500 italic">{{$message}}</p>
+            @enderror
+
         </div>
 
         <div class="mb-3">
             <label for="body" class="form-label mb-2">Descripción</label>
             <textarea wire:model="body" name="body" id="body" rows="4"
             placeholder="Ingrese la descripción del post" class="form-control"></textarea>
+
+            @error('body')
+                <p class="text-xs text-red-500 italic">{{$message}}</p>
+            @enderror
+
         </div>
 
         @if($action == 'store')
@@ -18,8 +29,8 @@
         @else
             <button wire:click="update" class="btn-primary">Actualizar</button>
             <button wire:click="default" class="btn-secundary">Cancelar</button>
-
         @endif
+
     </div>
 
     <table class="bg-white rounded-lg shadow overflow-hidden max-w-4xl mx-auto">

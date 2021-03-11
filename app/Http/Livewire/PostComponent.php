@@ -10,6 +10,11 @@ class PostComponent extends Component
     public $name, $body, $post_id;
     public $action = 'store';
 
+    protected $rules = [
+        'name' => 'required',
+        'body' => 'required'
+    ];
+
     public function render()
     {
         $posts = Post::latest('id')->get();
@@ -18,6 +23,7 @@ class PostComponent extends Component
 
     public function store()
     {
+        $this->validate();
         Post::create([
             'name' => $this->name,
             'body' => $this->body
@@ -37,6 +43,8 @@ class PostComponent extends Component
 
     public function update()
     {
+        $this->validate();
+
         $post = Post::find($this->post_id);
 
         $post->update([
