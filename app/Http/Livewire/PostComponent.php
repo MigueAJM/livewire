@@ -4,9 +4,11 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\Models\Post;
+use Livewire\WithPagination;
 
 class PostComponent extends Component
 {
+    use WithPagination;
     public $name, $body, $post_id;
     public $action = 'store';
 
@@ -26,7 +28,7 @@ class PostComponent extends Component
 
     public function render()
     {
-        $posts = Post::latest('id')->get();
+        $posts = Post::latest('id')->paginate(5);
         return view('livewire.post-component', compact('posts'));
     }
 

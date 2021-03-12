@@ -33,27 +33,33 @@
 
     </div>
 
-    <table class="bg-white rounded-lg shadow overflow-hidden max-w-4xl mx-auto">
-        <thead class="bg-gray-50 border-b border-gray-200">
-            <tr class="text-xs font-medium text-gray-500 uppercase text-left tracking-wider">
-                <th class="px-6 py-3">ID</th>
-                <th class="px-6 py-3">Nombre</th>
-                <th class="px-6 py-3">Body</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody class="divide-y divide-gray-200">
-            @foreach ($posts as $post)
-                <tr class="text-sm text-gray-500">
-                    <td class="px-6 py-4">{{$post->id}}</td>
-                    <td class="px-6 py-4">{{$post->name}}</td>
-                    <td class="px-6 py-4">{{$post->body}}</td>
-                    <td class="px-6 py-4">
-                        <button wire:click="edit({{$post}})" class="btn-primary w-full">Editar</button>
-                        <button wire:click="destroy({{$post}})" class="btn-secundary">Eliminar</button>
-                    </td>
+    <div class="bg-white rounded-lg shadow overflow-hidden max-w-4xl mx-auto mb-8">
+        <table>
+            <thead class="bg-gray-50 border-b border-gray-200">
+                <tr class="text-xs font-medium text-gray-500 uppercase text-left tracking-wider">
+                    <th class="px-6 py-3">ID</th>
+                    <th class="px-6 py-3">Nombre</th>
+                    <th class="px-6 py-3">Body</th>
+                    <th></th>
                 </tr>
-            @endforeach
-        </tbody>
-    </table>
+            </thead>
+            <tbody class="divide-y divide-gray-200">
+                @foreach ($posts as $post)
+                    <tr class="text-sm text-gray-500">
+                        <td class="px-6 py-4">{{$post->id}}</td>
+                        <td class="px-6 py-4">{{$post->name}}</td>
+                        <td class="px-6 py-4">{{$post->body}}</td>
+                        <td class="px-6 py-4">
+                            <button wire:click="edit({{$post}})" class="btn-primary w-full">Editar</button>
+                            <button wire:click="destroy({{$post}})" class="btn-secundary">Eliminar</button>
+                        </td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+
+        <div class="bg-gray-100 px-6 py-4 border-t border-gray-200">
+            {{$posts->links()}}
+        </div>
+    </div>
 </div>
