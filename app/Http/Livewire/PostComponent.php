@@ -15,6 +15,15 @@ class PostComponent extends Component
         'body' => 'required'
     ];
 
+    protected $validationAttributes = [
+        'name' => 'Nombre',
+        'body' => 'Descripción'
+    ];
+
+    protected $messages = [
+        'name.required' => 'Por favor ingrese el nombre que es requerido'
+    ];
+
     public function render()
     {
         $posts = Post::latest('id')->get();
@@ -23,7 +32,10 @@ class PostComponent extends Component
 
     public function store()
     {
-        $this->validate();
+        $this->validate([
+            'name' => 'required|max:10',
+            'body' => 'required'
+        ]);
         Post::create([
             'name' => $this->name,
             'body' => $this->body
